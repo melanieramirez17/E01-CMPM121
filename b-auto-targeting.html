@@ -45,11 +45,10 @@
         {
           continue;
         }
-        // Keep the earliest enemy if two have equal health.
-          if (target && target.health > enemy.health) {
-          continue;
-          }
+        // Keep the later enemy as the tie winner if the two have equal health.
+        if (target == null || enemy.health >= target.health) {
           target = enemy;
+        }
       }
       return target;
     }
